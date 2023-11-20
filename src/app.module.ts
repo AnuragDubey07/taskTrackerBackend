@@ -10,7 +10,7 @@ import { UsersModule } from './users/users.module';
 
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://dubeyanurag0711:pCZHCDQrtvquFJtS@cluster0.pvei9jr.mongodb.net/?retryWrites=true&w=majority'), AuthModule, UsersModule],
+  imports: [MongooseModule.forRoot('mongodb+srv://dubeyanurag0711:pCZHCDQrtvquFJtS@cluster0.pvei9jr.mongodb.net/?retryWrites=true&w=majority'), AuthModule],
   controllers: [AppController, ExampleController],
   providers: [AppService],
 })
