@@ -2,8 +2,8 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User } from './schemas/cat.schema';
-import * as bcrypt from 'bcryptjs';
-import { JwtService } from '@nestjs/jwt';
+
+
 
 
 
@@ -32,7 +32,7 @@ export class UsersService {
     const res = await this.userModel.create(user);
     return res;
   }
-  async login(user: User): Promise<{ token: string }> {
+  async login(user: User): Promise<{ token: String[] }> {
     const { email, password } = user;
     //console.log(email, password)
     const userData = await this.userModel.findOne({ email });
@@ -64,19 +64,19 @@ export class UsersService {
     });
 
     const token = this.jwtService.sign({ id: userData._id });
-    
+
     return { token };
     
   }
   // async addTask(user: String): Promise<{ task: string[] }> {
-  //   //return [  ]
-  async addTask(data:any,user: any):Promise<string[]>{
+  //   //return [  ][]
+  async addTask(data:any,user: any):Promise<{task:string[]}>{
     const { task } = data;
     // const userData = await this.userModel.findOneAndUpdate({
     //   _id: user._id,
     // })
     console.log(user)
-    return ["dmsad,ms","smdkfd"]
+    return "dmsad,ms"
   }
   }
 //}
